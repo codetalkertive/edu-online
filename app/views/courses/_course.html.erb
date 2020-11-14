@@ -1,0 +1,24 @@
+<div class="card">
+	<div class="card-header">
+		<div class="fa fa-book"></div>
+		<%= link_to course.title, course_path(course) %>
+	</div>
+	<div class="card-body">
+		<%= course.description %>
+	</div>
+	<div class="card-footer">
+		<div class="far fa-clock"></div>
+		<%= link_to course.created_at %>
+		<div class="row">
+			
+		</div>
+		<div class="fa fa-chalkboard-teacher"></div>
+		<%= link_to course.user.email %>
+
+	</div>
+	<div class="card-footer">
+		<td><%= link_to "Show", course, class: 'btn btn-primary' %></td>
+		<td><%= link_to "Edit", edit_course_path(course), class: 'btn btn-warning' %></td>
+		<td><%= link_to "Delete", course, method: :delete, data:{confirm: 'Are you sure?'}, class: 'btn btn-danger' %></td>
+	</div>
+</div>

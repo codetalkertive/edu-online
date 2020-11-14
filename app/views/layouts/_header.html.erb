@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">EduOnline</a>
+  <a class="navbar-brand" href="/">EduOnline</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,16 +14,32 @@
           Home
         <% end %>
       </li>
+       <li class="nav-item active">
+       
+        <%= link_to new_course_path, class: 'nav-link' do %>
+          <div class="fa fa-plus"></div>
+          New Course
+        <% end %>
+      </li>
       <li class="nav-item">
         <%= link_to courses_path, class: 'nav-link' do %>
           <div class="fa fa-graduation-cap"></div>
           Courses
         <% end %>
       </li>
-      <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      
+   <div class="form-inline my-2 my-lg-0">
+        <%= form_tag(courses_path, method: :get) do %>
+          <div class="input-group">
+            <%= text_field_tag :search, params[:search], autocomplete: 'off', placeholder: "Find a course", class: 'form-control-sm' %>
+            <span class="input-group-append">
+              <button class="btn btn-primary btn-sm" type="submit">
+                <span aria-hidden="true" class="fa fa-search"></span>
+              </button>
+            </span>
+          </div>
+        <% end %>
+      </div>
     
       <li class="nav-item">
         <%= link_to root_path, class: 'nav-link' do %>
