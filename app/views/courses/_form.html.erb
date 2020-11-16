@@ -22,6 +22,26 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :short_description %>
+    <%= form.text_area :short_description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :language %>
+    <%= form.select :language, options_for_select(["English", "French", "Italian"]), {:include_blank => '--Select One--'}, :required => true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :level %>
+    <%= form.select :level, options_for_select(["Beginner", "Intermediate", "Advanced"]), {:include_blank => '--Select One--'}, :required =>true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price %>
+    <%= form.number_field :price, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= form.submit "Add a course", class: 'btn btn-primary' %>
   </div>
 <% end %>

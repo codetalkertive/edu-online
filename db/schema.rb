@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_123802) do
+ActiveRecord::Schema.define(version: 2020_11_15_233944) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(version: 2020_11_15_123802) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.string "slug"
+    t.text "short_description"
+    t.text "language", default: "English", null: false
+    t.string "level", default: "Beginner", null: false
+    t.integer "price", default: 0, null: false
     t.index ["slug"], name: "index_courses_on_slug", unique: true
   end
 
@@ -65,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_11_15_123802) do
   end
 
 # Could not dump table "users" because of following StandardError
-#   Unknown type 'inet' for column 'current_sign_in_ip'
+#   Unknown type '' for column 'current_sign_in_ip'
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end
